@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dipendenti>
+  <dipendente>
+    <nome>Marco</nome>
+    <cognome>Giordano</cognome>
+    <stipendio>600,00</stipendio>
+  </dipendente>
+  <Dipendente>
+    <nome>Vincenzo</nome>
+    <Cognome>Giordano</Cognome>
+    <Stipendio>1500</Stipendio>
+  </Dipendente>
+  <Dipendente>
+    <nome>Gianluca</nome>
+    <Cognome>Tritone</Cognome>
+    <Stipendio>450</Stipendio>
+  </Dipendente>
+  <Dipendente>
+    <nome>Mario</nome>
+    <Cognome>Rossi</Cognome>
+    <Stipendio>900</Stipendio>
+  </Dipendente>
+</Dipendenti>

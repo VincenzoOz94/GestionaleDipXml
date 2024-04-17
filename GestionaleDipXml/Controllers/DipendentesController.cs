@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using GestionaleDipXml.Data;
 using GestionaleDipXml.Models;
 using System.Xml.Linq;
+using Microsoft.Identity.Client;
 
 namespace GestionaleDipXml.Controllers
 {
@@ -55,19 +56,19 @@ namespace GestionaleDipXml.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create( Dipendente model)
+        public async Task<IActionResult> Create(Dipendente model)
         {
             // vado a creare il documento XML utilizzando le informazioni del dipendente
             XElement xmlElement = new XElement("Dipendente",
-                new XElement("Nome", model.Nome),
+                new XElement("nome", model.Nome),
                 new XElement("Cognome", model.Cognome),
                 new XElement("Stipendio", model.Stipendio)
-           
+
             );
 
             string xmlString = xmlElement.ToString();
 
-            
+
             Dipendente dipendente = new Dipendente
             {
                 Nome = model.Nome,
@@ -76,11 +77,11 @@ namespace GestionaleDipXml.Controllers
                 DatiXml = xmlString
             };
 
-            
+
             _context.Dipendenti.Add(dipendente);
             _context.SaveChanges();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Dipendentes");
             //return View(dipendente);
         }
 
@@ -172,5 +173,26 @@ namespace GestionaleDipXml.Controllers
         {
             return _context.Dipendenti.Any(e => e.Id == id);
         }
+        public async Task<IActionResult> EstraiNome(int id)//estraggo il nome da un file xml
+        {
+            XDocument doc = XDocument.Parse(await _context.Dipendenti.Where(e => e.Id == id).Select(d => d.DatiXml).FirstOrDefaultAsync());
+
+            if (doc != null && doc.Root != null)
+            {
+                XElement nomeElement = doc.Root.Element("nome");
+                if (nomeElement != null)
+                {
+                    string nome = nomeElement.Value;
+                    return View("EstraiNome", nome);//EstraiNome mi serve per dire su quale pagina andare
+                }
+            }
+
+            // Gestione dei casi in cui i dati non sono disponibili o la struttura XML non è corretta
+            return View("Errore");
+
+        }
     }
 }
+    
+    
+

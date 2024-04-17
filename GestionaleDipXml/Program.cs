@@ -1,11 +1,21 @@
+using FluentAssertions.Common;
 using GestionaleDipXml.Data;
 using GestionaleDipXml.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+//var builderTwo= WebApplication.CreateBuilder(args);
+
 
 builder.Services.AddDbContext<DipendentiDbConext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("gestionale_dipendenti") ?? throw new InvalidOperationException("Connection string 'WebApplication1Context' not found.")));
+        options.UseSqlServer(builder.Configuration.GetConnectionString("gestionale_dipendenti") ?? throw new InvalidOperationException("Connection string 'WebApplication1Context' not found.")));
+
+
+builder.Services.AddDbContext<TestXmlContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("TestXml") ?? throw new InvalidOperationException("Connection string 'WebApplication1Context' not found.")));
+
+
+
 
 
 builder.Services.AddControllersWithViews();

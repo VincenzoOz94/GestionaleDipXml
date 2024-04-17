@@ -1,0 +1,100 @@
+﻿@model GestionaleDipXml.Model.SevenDataRapportoInformativo
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>SevenDataRapportoInformativo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Oid" />
+            <div class="form-group">
+                <label asp-for="OidProdotto" class="control-label"></label>
+                <input asp-for="OidProdotto" class="form-control" />
+                <span asp-validation-for="OidProdotto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OidCliente" class="control-label"></label>
+                <input asp-for="OidCliente" class="form-control" />
+                <span asp-validation-for="OidCliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataRichiesta" class="control-label"></label>
+                <input asp-for="DataRichiesta" class="form-control" />
+                <span asp-validation-for="DataRichiesta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataRisposta" class="control-label"></label>
+                <input asp-for="DataRisposta" class="form-control" />
+                <span asp-validation-for="DataRisposta" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Elaborato" /> @Html.DisplayNameFor(model => model.Elaborato)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Xml" class="control-label"></label>
+                <input asp-for="Xml" class="form-control" />
+                <span asp-validation-for="Xml" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rating" class="control-label"></label>
+                <input asp-for="Rating" class="form-control" />
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StatoAttivita" class="control-label"></label>
+                <input asp-for="StatoAttivita" class="form-control" />
+                <span asp-validation-for="StatoAttivita" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fido" class="control-label"></label>
+                <input asp-for="Fido" class="form-control" />
+                <span asp-validation-for="Fido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ScoreBilancio" class="control-label"></label>
+                <input asp-for="ScoreBilancio" class="form-control" />
+                <span asp-validation-for="ScoreBilancio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Negativita" class="control-label"></label>
+                <input asp-for="Negativita" class="form-control" />
+                <span asp-validation-for="Negativita" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnnoBilancio" class="control-label"></label>
+                <input asp-for="AnnoBilancio" class="form-control" />
+                <span asp-validation-for="AnnoBilancio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdrichiestaJson" class="control-label"></label>
+                <input asp-for="IdrichiestaJson" class="form-control" />
+                <span asp-validation-for="IdrichiestaJson" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdrichiestaPdf" class="control-label"></label>
+                <input asp-for="IdrichiestaPdf" class="form-control" />
+                <span asp-validation-for="IdrichiestaPdf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

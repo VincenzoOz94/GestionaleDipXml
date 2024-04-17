@@ -1,0 +1,116 @@
+﻿@model IEnumerable<GestionaleDipXml.Model.SevenDataRapportoInformativo>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OidProdotto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OidCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataRichiesta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataRisposta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataRispostaShort)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Elaborato)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatoAttivita)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScoreBilancio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Negativita)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnnoBilancio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdrichiestaJson)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdrichiestaPdf)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OidProdotto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OidCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataRichiesta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataRisposta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataRispostaShort)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Elaborato)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatoAttivita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScoreBilancio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Negativita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnnoBilancio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdrichiestaJson)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdrichiestaPdf)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Oid">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Oid">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Oid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
